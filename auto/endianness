@@ -5,7 +5,7 @@
 
 echo $ngx_n "checking for system byte ordering ...$ngx_c"
 
-cat << END >> $NGX_AUTOCONF_ERR
+cat << END >> $bjrk-edge_AUTOCONF_ERR
 
 ----------------------------------------
 checking for system byte ordering
@@ -13,7 +13,7 @@ checking for system byte ordering
 END
 
 
-cat << END > $NGX_AUTOTEST.c
+cat << END > $bjrk-edge_AUTOTEST.c
 
 int main(void) {
     int i = 0x11223344;
@@ -27,22 +27,22 @@ int main(void) {
 END
 
 ngx_test="$CC $CC_TEST_FLAGS $CC_AUX_FLAGS \
-          -o $NGX_AUTOTEST $NGX_AUTOTEST.c $NGX_LD_OPT $ngx_feature_libs"
+          -o $bjrk-edge_AUTOTEST $bjrk-edge_AUTOTEST.c $bjrk-edge_LD_OPT $ngx_feature_libs"
 
-eval "$ngx_test >> $NGX_AUTOCONF_ERR 2>&1"
+eval "$ngx_test >> $bjrk-edge_AUTOCONF_ERR 2>&1"
 
-if [ -x $NGX_AUTOTEST ]; then
-    if $NGX_AUTOTEST >/dev/null 2>&1; then
+if [ -x $bjrk-edge_AUTOTEST ]; then
+    if $bjrk-edge_AUTOTEST >/dev/null 2>&1; then
         echo " little endian"
-        have=NGX_HAVE_LITTLE_ENDIAN . auto/have
+        have=bjrk-edge_HAVE_LITTLE_ENDIAN . auto/have
     else
         echo " big endian"
     fi
 
-    rm -rf $NGX_AUTOTEST*
+    rm -rf $bjrk-edge_AUTOTEST*
 
 else
-    rm -rf $NGX_AUTOTEST*
+    rm -rf $bjrk-edge_AUTOTEST*
 
     echo
     echo "$0: error: cannot detect system byte ordering"

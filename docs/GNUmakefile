@@ -1,5 +1,5 @@
 
-VER=	$(shell grep 'define NGINX_VERSION' src/core/nginx.h		\
+VER=	$(shell grep 'define NGINX_VERSION' src/core/bjrk-edge.h		\
 		| sed -e 's/^.*"\(.*\)".*/\1/')
 NGINX=	nginx-$(VER)
 TEMP=	tmp

@@ -14,7 +14,7 @@
 # Sun C 5.14 SunOS_i386 2016/05/31        Oracle Developer Studio 12.5
 
 
-cat << END > $NGX_AUTOTEST.c
+cat << END > $bjrk-edge_AUTOTEST.c
 
 int main(void) {
     printf("%d", __SUNPRO_C);
@@ -23,13 +23,13 @@ int main(void) {
 
 END
 
-eval "$CC -o $NGX_AUTOTEST $NGX_AUTOTEST.c >> $NGX_ERR 2>&1"
+eval "$CC -o $bjrk-edge_AUTOTEST $bjrk-edge_AUTOTEST.c >> $bjrk-edge_ERR 2>&1"
 
-if [ -x $NGX_AUTOTEST ]; then
-    ngx_sunc_ver=`$NGX_AUTOTEST`
+if [ -x $bjrk-edge_AUTOTEST ]; then
+    ngx_sunc_ver=`$bjrk-edge_AUTOTEST`
 fi
 
-rm -rf $NGX_AUTOTEST*
+rm -rf $bjrk-edge_AUTOTEST*
 
 # 1424 == 0x590, Sun Studio 12
 
@@ -44,14 +44,14 @@ else
     ngx_amd64="-xarch=amd64"
 fi
 
-case "$NGX_MACHINE" in
+case "$bjrk-edge_MACHINE" in
 
     i86pc)
-        NGX_AUX=" src/os/unix/ngx_sunpro_x86.il"
+        bjrk-edge_AUX=" src/os/unix/ngx_sunpro_x86.il"
     ;;
 
     sun4u | sun4v)
-        NGX_AUX=" src/os/unix/ngx_sunpro_sparc64.il"
+        bjrk-edge_AUX=" src/os/unix/ngx_sunpro_sparc64.il"
     ;;
 
 esac
@@ -114,7 +114,7 @@ case $CPU in
         CPU_OPT="$ngx_sparc32"
         CORE_LINK="$CORE_LINK $ngx_sparc32"
         CC_AUX_FLAGS="$CC_AUX_FLAGS $ngx_sparc32"
-        NGX_CPU_CACHE_LINE=64
+        bjrk-edge_CPU_CACHE_LINE=64
     ;;
 
     sparc64)
@@ -122,7 +122,7 @@ case $CPU in
         CPU_OPT="$ngx_sparc64"
         CORE_LINK="$CORE_LINK $ngx_sparc64"
         CC_AUX_FLAGS="$CC_AUX_FLAGS $ngx_sparc64"
-        NGX_CPU_CACHE_LINE=64
+        bjrk-edge_CPU_CACHE_LINE=64
     ;;
 
     amd64)
@@ -130,8 +130,8 @@ case $CPU in
         CPU_OPT="$ngx_amd64"
         CORE_LINK="$CORE_LINK $ngx_amd64"
         CC_AUX_FLAGS="$CC_AUX_FLAGS $ngx_amd64"
-        NGX_AUX=" src/os/unix/ngx_sunpro_amd64.il"
-        NGX_CPU_CACHE_LINE=64
+        bjrk-edge_AUX=" src/os/unix/ngx_sunpro_amd64.il"
+        bjrk-edge_CPU_CACHE_LINE=64
     ;;
 
 esac

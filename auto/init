@@ -3,22 +3,22 @@
 # Copyright (C) Nginx, Inc.
 
 
-NGX_MAKEFILE=$NGX_OBJS/Makefile
-NGX_MODULES_C=$NGX_OBJS/ngx_modules.c
+bjrk-edge_MAKEFILE=$bjrk-edge_OBJS/Makefile
+bjrk-edge_MODULES_C=$bjrk-edge_OBJS/bjrk-edge_modules.c
 
-NGX_AUTO_HEADERS_H=$NGX_OBJS/ngx_auto_headers.h
-NGX_AUTO_CONFIG_H=$NGX_OBJS/ngx_auto_config.h
+bjrk-edge_AUTO_HEADERS_H=$bjrk-edge_OBJS/bjrk-edge_auto_headers.h
+bjrk-edge_AUTO_CONFIG_H=$bjrk-edge_OBJS/bjrk-edge_auto_config.h
 
-NGX_AUTOTEST=$NGX_OBJS/autotest
-NGX_AUTOCONF_ERR=$NGX_OBJS/autoconf.err
+bjrk-edge_AUTOTEST=$bjrk-edge_OBJS/autotest
+bjrk-edge_AUTOCONF_ERR=$bjrk-edge_OBJS/autoconf.err
 
 # STUBs
-NGX_ERR=$NGX_OBJS/autoconf.err
-MAKEFILE=$NGX_OBJS/Makefile
+bjrk-edge_ERR=$bjrk-edge_OBJS/autoconf.err
+MAKEFILE=$bjrk-edge_OBJS/Makefile
 
 
-NGX_PCH=
-NGX_USE_PCH=
+bjrk-edge_PCH=
+bjrk-edge_USE_PCH=
 
 
 # check the echo's "-n" option and "\c" capability
@@ -47,7 +47,7 @@ cat << END > Makefile
 default:	build
 
 clean:
-	rm -rf Makefile $NGX_OBJS
+	rm -rf Makefile $bjrk-edge_OBJS
 
 .PHONY:	default clean
 END

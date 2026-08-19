@@ -34,49 +34,49 @@ case $ZLIB in
     *)     echo "  + using zlib library: $ZLIB" ;;
 esac
 
-case $NGX_LIBATOMIC in
+case $bjrk-edge_LIBATOMIC in
     YES)   echo "  + using system libatomic_ops library" ;;
     NO)    ;; # not used
-    *)     echo "  + using libatomic_ops library: $NGX_LIBATOMIC" ;;
+    *)     echo "  + using libatomic_ops library: $bjrk-edge_LIBATOMIC" ;;
 esac
 
 echo
 
 
 cat << END
-  nginx path prefix: "$NGX_PREFIX"
-  nginx binary file: "$NGX_SBIN_PATH"
-  nginx modules path: "$NGX_MODULES_PATH"
-  nginx configuration prefix: "$NGX_CONF_PREFIX"
-  nginx configuration file: "$NGX_CONF_PATH"
-  nginx pid file: "$NGX_PID_PATH"
+  nginx path prefix: "$bjrk-edge_PREFIX"
+  nginx binary file: "$bjrk-edge_SBIN_PATH"
+  nginx modules path: "$bjrk-edge_MODULES_PATH"
+  nginx configuration prefix: "$bjrk-edge_CONF_PREFIX"
+  nginx configuration file: "$bjrk-edge_CONF_PATH"
+  nginx pid file: "$bjrk-edge_PID_PATH"
 END
 
-if test -n "$NGX_ERROR_LOG_PATH"; then
-    echo "  nginx error log file: \"$NGX_ERROR_LOG_PATH\""
+if test -n "$bjrk-edge_ERROR_LOG_PATH"; then
+    echo "  nginx error log file: \"$bjrk-edge_ERROR_LOG_PATH\""
 else
     echo "  nginx logs errors to stderr"
 fi
 
 cat << END
-  nginx http access log file: "$NGX_HTTP_LOG_PATH"
-  nginx http client request body temporary files: "$NGX_HTTP_CLIENT_TEMP_PATH"
+  nginx http access log file: "$bjrk-edge_HTTP_LOG_PATH"
+  nginx http client request body temporary files: "$bjrk-edge_HTTP_CLIENT_TEMP_PATH"
 END
 
 if [ $HTTP_PROXY = YES ]; then
-    echo "  nginx http proxy temporary files: \"$NGX_HTTP_PROXY_TEMP_PATH\""
+    echo "  nginx http proxy temporary files: \"$bjrk-edge_HTTP_PROXY_TEMP_PATH\""
 fi
 
 if [ $HTTP_FASTCGI = YES ]; then
-    echo "  nginx http fastcgi temporary files: \"$NGX_HTTP_FASTCGI_TEMP_PATH\""
+    echo "  nginx http fastcgi temporary files: \"$bjrk-edge_HTTP_FASTCGI_TEMP_PATH\""
 fi
 
 if [ $HTTP_UWSGI = YES ]; then
-    echo "  nginx http uwsgi temporary files: \"$NGX_HTTP_UWSGI_TEMP_PATH\""
+    echo "  nginx http uwsgi temporary files: \"$bjrk-edge_HTTP_UWSGI_TEMP_PATH\""
 fi
 
 if [ $HTTP_SCGI = YES ]; then
-    echo "  nginx http scgi temporary files: \"$NGX_HTTP_SCGI_TEMP_PATH\""
+    echo "  nginx http scgi temporary files: \"$bjrk-edge_HTTP_SCGI_TEMP_PATH\""
 fi
 
-echo "$NGX_POST_CONF_MSG"
+echo "$bjrk-edge_POST_CONF_MSG"

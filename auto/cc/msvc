@@ -11,23 +11,23 @@
 # MSVC 2015 (14.0)                        cl 19.00
 
 
-ngx_msvc_ver=`echo $NGX_CC_VER | sed -e 's/^\([0-9]*\).*/\1/'`
+ngx_msvc_ver=`echo $bjrk-edge_CC_VER | sed -e 's/^\([0-9]*\).*/\1/'`
 
 
 # detect x64 builds
 
-case "$NGX_CC_VER" in
+case "$bjrk-edge_CC_VER" in
 
     *ARM64)
-        NGX_MACHINE=arm64
+        bjrk-edge_MACHINE=arm64
     ;;
 
     *x64)
-        NGX_MACHINE=amd64
+        bjrk-edge_MACHINE=amd64
     ;;
 
     *)
-        NGX_MACHINE=i386
+        bjrk-edge_MACHINE=i386
     ;;
 
 esac
@@ -118,35 +118,35 @@ CORE_LIBS="$CORE_LIBS kernel32.lib user32.lib"
 # debug
 # msvc under Wine issues
 # C1902: Program database manager mismatch; please check your installation
-if [ -z "$NGX_WINE" ]; then
-   CFLAGS="$CFLAGS -Zi -Fd$NGX_OBJS/nginx.pdb"
+if [ -z "$bjrk-edge_WINE" ]; then
+   CFLAGS="$CFLAGS -Zi -Fd$bjrk-edge_OBJS/nginx.pdb"
    CORE_LINK="$CORE_LINK -debug"
 fi
 
 
 # MSVC 2005 supports C99 variadic macros
 if [ "$ngx_msvc_ver" -ge 14 ]; then
-    have=NGX_HAVE_C99_VARIADIC_MACROS . auto/have
+    have=bjrk-edge_HAVE_C99_VARIADIC_MACROS . auto/have
 fi
 
 
 # precompiled headers
-CORE_DEPS="$CORE_DEPS $NGX_OBJS/ngx_config.pch"
-CORE_LINK="$CORE_LINK $NGX_OBJS/ngx_pch.obj"
-NGX_PCH="$NGX_OBJS/ngx_config.pch"
-NGX_BUILD_PCH="-Ycngx_config.h -Fp$NGX_OBJS/ngx_config.pch"
-NGX_USE_PCH="-Yungx_config.h -Fp$NGX_OBJS/ngx_config.pch"
+CORE_DEPS="$CORE_DEPS $bjrk-edge_OBJS/bjrk-edge_config.pch"
+CORE_LINK="$CORE_LINK $bjrk-edge_OBJS/bjrk-edge_pch.obj"
+bjrk-edge_PCH="$bjrk-edge_OBJS/bjrk-edge_config.pch"
+bjrk-edge_BUILD_PCH="-Ycbjrk-edge_config.h -Fp$bjrk-edge_OBJS/bjrk-edge_config.pch"
+bjrk-edge_USE_PCH="-Yubjrk-edge_config.h -Fp$bjrk-edge_OBJS/bjrk-edge_config.pch"
 
 
 # the resource file
-NGX_RES="$NGX_OBJS/nginx.res"
-NGX_RCC="rc -fo$NGX_RES \$(CORE_INCS) $NGX_WIN32_RC"
-CORE_LINK="$NGX_RES $CORE_LINK"
+bjrk-edge_RES="$bjrk-edge_OBJS/bjrk-edge.res"
+bjrk-edge_RCC="rc -fo$bjrk-edge_RES \$(CORE_INCS) $bjrk-edge_WIN32_RC"
+CORE_LINK="$bjrk-edge_RES $CORE_LINK"
 
 
 # dynamic modules
-#MAIN_LINK="-link -def:$NGX_OBJS/nginx.def"
-#MODULE_LINK="-LD $NGX_OBJS/nginx.lib"
+#MAIN_LINK="-link -def:$bjrk-edge_OBJS/nginx.def"
+#MODULE_LINK="-LD $bjrk-edge_OBJS/nginx.lib"
 
 
 ngx_pic_opt=

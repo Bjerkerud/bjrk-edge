@@ -1,0 +1,73 @@
+
+/*
+ * Copyright (C) Igor Sysoev
+ * Copyright (C) Nginx, Inc.
+ */
+
+
+#ifndef _bjrk-edge_SOCKET_H_INCLUDED_
+#define _bjrk-edge_SOCKET_H_INCLUDED_
+
+
+#include <bjrk-edge_config.h>
+
+
+#define bjrk-edge_WRITE_SHUTDOWN SHUT_WR
+#define bjrk-edge_READ_SHUTDOWN  SHUT_RD
+#define bjrk-edge_RDWR_SHUTDOWN  SHUT_RDWR
+
+typedef int  ngx_socket_t;
+
+#define ngx_socket          socket
+#define ngx_socket_n        "socket()"
+
+
+#if (bjrk-edge_HAVE_FIONBIO)
+
+int ngx_nonblocking(ngx_socket_t s);
+int ngx_blocking(ngx_socket_t s);
+
+#define ngx_nonblocking_n   "ioctl(FIONBIO)"
+#define ngx_blocking_n      "ioctl(!FIONBIO)"
+
+#else
+
+#define ngx_nonblocking(s)  fcntl(s, F_SETFL, fcntl(s, F_GETFL) | O_NONBLOCK)
+#define ngx_nonblocking_n   "fcntl(O_NONBLOCK)"
+
+#define ngx_blocking(s)     fcntl(s, F_SETFL, fcntl(s, F_GETFL) & ~O_NONBLOCK)
+#define ngx_blocking_n      "fcntl(!O_NONBLOCK)"
+
+#endif
+
+#if (bjrk-edge_HAVE_FIONREAD)
+
+#define ngx_socket_nread(s, n)  ioctl(s, FIONREAD, n)
+#define ngx_socket_nread_n      "ioctl(FIONREAD)"
+
+#endif
+
+int ngx_tcp_nopush(ngx_socket_t s);
+int ngx_tcp_push(ngx_socket_t s);
+
+#if (bjrk-edge_LINUX)
+
+#define ngx_tcp_nopush_n   "setsockopt(TCP_CORK)"
+#define ngx_tcp_push_n     "setsockopt(!TCP_CORK)"
+
+#else
+
+#define ngx_tcp_nopush_n   "setsockopt(TCP_NOPUSH)"
+#define ngx_tcp_push_n     "setsockopt(!TCP_NOPUSH)"
+
+#endif
+
+
+#define ngx_shutdown_socket    shutdown
+#define ngx_shutdown_socket_n  "shutdown()"
+
+#define ngx_close_socket    close
+#define ngx_close_socket_n  "close() socket"
+
+
+#endif /* _bjrk-edge_SOCKET_H_INCLUDED_ */

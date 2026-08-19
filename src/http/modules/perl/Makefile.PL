@@ -13,20 +13,20 @@ WriteMakefile(
     ABSTRACT_FROM     => 'nginx.pm',     # retrieve abstract from module
     AUTHOR            => 'Igor Sysoev',
 
-    CCFLAGS           => "$ENV{NGX_PM_CFLAGS}",
+    CCFLAGS           => "$ENV{bjrk-edge_PM_CFLAGS}",
     OPTIMIZE          => '-O',
 
-    LDDLFLAGS         => "$ENV{NGX_PM_LDFLAGS}",
+    LDDLFLAGS         => "$ENV{bjrk-edge_PM_LDFLAGS}",
 
     INC               => join(" ", map {
                              m#^/# ? "-I $_" : "-I ../../../../../$_"
-                         } (split /\s+/, $ENV{NGX_INCS})),
+                         } (split /\s+/, $ENV{bjrk-edge_INCS})),
 
     depend => {
         'nginx.c'     => join(" ", map {
                              m#^/# ? $_ : "../../../../../$_"
-                         } (split(/\s+/, $ENV{NGX_DEPS}),
-                            "src/http/modules/perl/ngx_http_perl_module.h"))
+                         } (split(/\s+/, $ENV{bjrk-edge_DEPS}),
+                            "src/http/modules/perl/bjrk-edge_http_perl_module.h"))
     },
 
     PM => {

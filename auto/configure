@@ -11,51 +11,51 @@ export LC_ALL
 . auto/init
 . auto/sources
 
-test -d $NGX_OBJS || mkdir -p $NGX_OBJS
+test -d $bjrk-edge_OBJS || mkdir -p $bjrk-edge_OBJS
 
-echo > $NGX_AUTO_HEADERS_H
-echo > $NGX_AUTOCONF_ERR
+echo > $bjrk-edge_AUTO_HEADERS_H
+echo > $bjrk-edge_AUTOCONF_ERR
 
-echo "#define NGX_CONFIGURE \"$NGX_CONFIGURE\"" > $NGX_AUTO_CONFIG_H
+echo "#define bjrk-edge_CONFIGURE \"$bjrk-edge_CONFIGURE\"" > $bjrk-edge_AUTO_CONFIG_H
 
 
-if [ $NGX_DEBUG = YES ]; then
-    have=NGX_DEBUG . auto/have
+if [ $bjrk-edge_DEBUG = YES ]; then
+    have=bjrk-edge_DEBUG . auto/have
 fi
 
 
-if test -z "$NGX_PLATFORM"; then
+if test -z "$bjrk-edge_PLATFORM"; then
     echo "checking for OS"
 
-    NGX_SYSTEM=`uname -s 2>/dev/null`
-    NGX_RELEASE=`uname -r 2>/dev/null`
-    NGX_MACHINE=`uname -m 2>/dev/null`
+    bjrk-edge_SYSTEM=`uname -s 2>/dev/null`
+    bjrk-edge_RELEASE=`uname -r 2>/dev/null`
+    bjrk-edge_MACHINE=`uname -m 2>/dev/null`
 
-    echo " + $NGX_SYSTEM $NGX_RELEASE $NGX_MACHINE"
+    echo " + $bjrk-edge_SYSTEM $bjrk-edge_RELEASE $bjrk-edge_MACHINE"
 
-    NGX_PLATFORM="$NGX_SYSTEM:$NGX_RELEASE:$NGX_MACHINE";
+    bjrk-edge_PLATFORM="$bjrk-edge_SYSTEM:$bjrk-edge_RELEASE:$bjrk-edge_MACHINE";
 
-    case "$NGX_SYSTEM" in
+    case "$bjrk-edge_SYSTEM" in
         MINGW32_* | MINGW64_* | MSYS_*)
-            NGX_PLATFORM=win32
+            bjrk-edge_PLATFORM=win32
         ;;
     esac
 
 else
-    echo "building for $NGX_PLATFORM"
-    NGX_SYSTEM=$NGX_PLATFORM
-    NGX_MACHINE=i386
+    echo "building for $bjrk-edge_PLATFORM"
+    bjrk-edge_SYSTEM=$bjrk-edge_PLATFORM
+    bjrk-edge_MACHINE=i386
 fi
 
 . auto/cc/conf
 
-if [ "$NGX_PLATFORM" != win32 ]; then
+if [ "$bjrk-edge_PLATFORM" != win32 ]; then
     . auto/headers
 fi
 
 . auto/os/conf
 
-if [ "$NGX_PLATFORM" != win32 ]; then
+if [ "$bjrk-edge_PLATFORM" != win32 ]; then
     . auto/unix
 fi
 
@@ -63,45 +63,45 @@ fi
 . auto/modules
 . auto/lib/conf
 
-case ".$NGX_PREFIX" in
+case ".$bjrk-edge_PREFIX" in
     .)
-        NGX_PREFIX=${NGX_PREFIX:-/usr/local/nginx}
-        have=NGX_PREFIX value="\"$NGX_PREFIX/\"" . auto/define
+        bjrk-edge_PREFIX=${bjrk-edge_PREFIX:-/usr/local/nginx}
+        have=bjrk-edge_PREFIX value="\"$bjrk-edge_PREFIX/\"" . auto/define
     ;;
 
     .!)
-        NGX_PREFIX=
+        bjrk-edge_PREFIX=
     ;;
 
     *)
-        have=NGX_PREFIX value="\"$NGX_PREFIX/\"" . auto/define
+        have=bjrk-edge_PREFIX value="\"$bjrk-edge_PREFIX/\"" . auto/define
     ;;
 esac
 
-if [ ".$NGX_CONF_PREFIX" != "." ]; then
-    have=NGX_CONF_PREFIX value="\"$NGX_CONF_PREFIX/\"" . auto/define
+if [ ".$bjrk-edge_CONF_PREFIX" != "." ]; then
+    have=bjrk-edge_CONF_PREFIX value="\"$bjrk-edge_CONF_PREFIX/\"" . auto/define
 fi
 
-have=NGX_SBIN_PATH value="\"$NGX_SBIN_PATH\"" . auto/define
-have=NGX_CONF_PATH value="\"$NGX_CONF_PATH\"" . auto/define
-have=NGX_PID_PATH value="\"$NGX_PID_PATH\"" . auto/define
-have=NGX_LOCK_PATH value="\"$NGX_LOCK_PATH\"" . auto/define
-have=NGX_ERROR_LOG_PATH value="\"$NGX_ERROR_LOG_PATH\"" . auto/define
+have=bjrk-edge_SBIN_PATH value="\"$bjrk-edge_SBIN_PATH\"" . auto/define
+have=bjrk-edge_CONF_PATH value="\"$bjrk-edge_CONF_PATH\"" . auto/define
+have=bjrk-edge_PID_PATH value="\"$bjrk-edge_PID_PATH\"" . auto/define
+have=bjrk-edge_LOCK_PATH value="\"$bjrk-edge_LOCK_PATH\"" . auto/define
+have=bjrk-edge_ERROR_LOG_PATH value="\"$bjrk-edge_ERROR_LOG_PATH\"" . auto/define
 
-if [ ".$NGX_ERROR_LOG_PATH" = "." ]; then
-    have=NGX_ERROR_LOG_STDERR . auto/have
+if [ ".$bjrk-edge_ERROR_LOG_PATH" = "." ]; then
+    have=bjrk-edge_ERROR_LOG_STDERR . auto/have
 fi
 
-have=NGX_HTTP_LOG_PATH value="\"$NGX_HTTP_LOG_PATH\"" . auto/define
-have=NGX_HTTP_CLIENT_TEMP_PATH value="\"$NGX_HTTP_CLIENT_TEMP_PATH\""
+have=bjrk-edge_HTTP_LOG_PATH value="\"$bjrk-edge_HTTP_LOG_PATH\"" . auto/define
+have=bjrk-edge_HTTP_CLIENT_TEMP_PATH value="\"$bjrk-edge_HTTP_CLIENT_TEMP_PATH\""
 . auto/define
-have=NGX_HTTP_PROXY_TEMP_PATH value="\"$NGX_HTTP_PROXY_TEMP_PATH\""
+have=bjrk-edge_HTTP_PROXY_TEMP_PATH value="\"$bjrk-edge_HTTP_PROXY_TEMP_PATH\""
 . auto/define
-have=NGX_HTTP_FASTCGI_TEMP_PATH value="\"$NGX_HTTP_FASTCGI_TEMP_PATH\""
+have=bjrk-edge_HTTP_FASTCGI_TEMP_PATH value="\"$bjrk-edge_HTTP_FASTCGI_TEMP_PATH\""
 . auto/define
-have=NGX_HTTP_UWSGI_TEMP_PATH value="\"$NGX_HTTP_UWSGI_TEMP_PATH\""
+have=bjrk-edge_HTTP_UWSGI_TEMP_PATH value="\"$bjrk-edge_HTTP_UWSGI_TEMP_PATH\""
 . auto/define
-have=NGX_HTTP_SCGI_TEMP_PATH value="\"$NGX_HTTP_SCGI_TEMP_PATH\""
+have=bjrk-edge_HTTP_SCGI_TEMP_PATH value="\"$bjrk-edge_HTTP_SCGI_TEMP_PATH\""
 . auto/define
 
 . auto/make
@@ -111,11 +111,11 @@ have=NGX_HTTP_SCGI_TEMP_PATH value="\"$NGX_HTTP_SCGI_TEMP_PATH\""
 # STUB
 . auto/stubs
 
-have=NGX_USER value="\"$NGX_USER\"" . auto/define
-have=NGX_GROUP value="\"$NGX_GROUP\"" . auto/define
+have=bjrk-edge_USER value="\"$bjrk-edge_USER\"" . auto/define
+have=bjrk-edge_GROUP value="\"$bjrk-edge_GROUP\"" . auto/define
 
-if [ ".$NGX_BUILD" != "." ]; then
-    have=NGX_BUILD value="\"$NGX_BUILD\"" . auto/define
+if [ ".$bjrk-edge_BUILD" != "." ]; then
+    have=bjrk-edge_BUILD value="\"$bjrk-edge_BUILD\"" . auto/define
 fi
 
 . auto/summary

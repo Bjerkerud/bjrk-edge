@@ -7,7 +7,7 @@ if [ $PCRE_LIBRARY = PCRE2 ]; then
 
     # PCRE2
 
-    if [ $NGX_CC_NAME = msvc ]; then
+    if [ $bjrk-edge_CC_NAME = msvc ]; then
 
         # With PCRE2, it is not possible to compile all sources.
         # Since list of source files changes between versions, we
@@ -60,7 +60,7 @@ if [ $PCRE_LIBRARY = PCRE2 ]; then
         ngx_pcre_objs=`echo $ngx_pcre_objs \
             | sed -e "s/  *\([^ ][^ ]*\)/$ngx_regex_cont\1/g"`
 
-        cat << END                                            >> $NGX_MAKEFILE
+        cat << END                                            >> $bjrk-edge_MAKEFILE
 
 PCRE_CFLAGS =	-O2 -Ob1 -Oi -Gs $LIBC $CPU_OPT
 PCRE_FLAGS =	-DHAVE_CONFIG_H -DPCRE2_STATIC -DPCRE2_CODE_UNIT_WIDTH=8 \\
@@ -75,7 +75,7 @@ $PCRE/src/pcre2.h:
 	&& copy /y pcre2.h.generic pcre2.h \\
 	&& copy /y pcre2_chartables.c.dist pcre2_chartables.c
 
-$PCRE/src/pcre2-8.lib:	$PCRE/src/pcre2.h $NGX_MAKEFILE
+$PCRE/src/pcre2-8.lib:	$PCRE/src/pcre2.h $bjrk-edge_MAKEFILE
 	cd $PCRE/src \\
 	&& cl -nologo -c \$(PCRE_CFLAGS) -I . \$(PCRE_FLAGS) \$(PCRE_SRCS) \\
 	&& link -lib -out:pcre2-8.lib -verbose:lib \$(PCRE_OBJS)
@@ -84,11 +84,11 @@ END
 
     else
 
-        cat << END                                            >> $NGX_MAKEFILE
+        cat << END                                            >> $bjrk-edge_MAKEFILE
 
 $PCRE/src/pcre2.h:	$PCRE/Makefile
 
-$PCRE/Makefile:	$NGX_MAKEFILE
+$PCRE/Makefile:	$bjrk-edge_MAKEFILE
 	cd $PCRE \\
 	&& if [ -f Makefile ]; then \$(MAKE) distclean; fi \\
 	&& CC="\$(CC)" CFLAGS="$PCRE_OPT" \\
@@ -107,7 +107,7 @@ else
 
     # PCRE
 
-    case "$NGX_CC_NAME" in
+    case "$bjrk-edge_CC_NAME" in
 
         msvc)
             ngx_makefile=makefile.msvc
@@ -137,9 +137,9 @@ else
 
     if [ -n "$ngx_makefile" ]; then
 
-        cat << END                                            >> $NGX_MAKEFILE
+        cat << END                                            >> $bjrk-edge_MAKEFILE
 
-`echo "$PCRE/pcre.lib:	$PCRE/pcre.h $NGX_MAKEFILE"			\
+`echo "$PCRE/pcre.lib:	$PCRE/pcre.h $bjrk-edge_MAKEFILE"			\
 	| sed -e "s/\//$ngx_regex_dirsep/g"`
 	\$(MAKE) -f auto/lib/pcre/$ngx_makefile $ngx_pcre $ngx_opt
 
@@ -150,11 +150,11 @@ END
 
     else
 
-        cat << END                                            >> $NGX_MAKEFILE
+        cat << END                                            >> $bjrk-edge_MAKEFILE
 
 $PCRE/pcre.h:	$PCRE/Makefile
 
-$PCRE/Makefile:	$NGX_MAKEFILE
+$PCRE/Makefile:	$bjrk-edge_MAKEFILE
 	cd $PCRE \\
 	&& if [ -f Makefile ]; then \$(MAKE) distclean; fi \\
 	&& CC="\$(CC)" CFLAGS="$PCRE_OPT" \\

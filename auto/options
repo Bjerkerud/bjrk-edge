@@ -5,36 +5,36 @@
 
 help=no
 
-NGX_PREFIX=
-NGX_SBIN_PATH=
-NGX_MODULES_PATH=
-NGX_CONF_PREFIX=
-NGX_CONF_PATH=
-NGX_ERROR_LOG_PATH=
-NGX_PID_PATH=
-NGX_LOCK_PATH=
-NGX_USER=
-NGX_GROUP=
-NGX_BUILD=
+bjrk-edge_PREFIX=
+bjrk-edge_SBIN_PATH=
+bjrk-edge_MODULES_PATH=
+bjrk-edge_CONF_PREFIX=
+bjrk-edge_CONF_PATH=
+bjrk-edge_ERROR_LOG_PATH=
+bjrk-edge_PID_PATH=
+bjrk-edge_LOCK_PATH=
+bjrk-edge_USER=
+bjrk-edge_GROUP=
+bjrk-edge_BUILD=
 
 CC=${CC:-cc}
 CPP=
-NGX_OBJS=objs
+bjrk-edge_OBJS=objs
 
-NGX_DEBUG=NO
-NGX_CC_OPT=
-NGX_LD_OPT=
+bjrk-edge_DEBUG=NO
+bjrk-edge_CC_OPT=
+bjrk-edge_LD_OPT=
 CPU=NO
 
-NGX_RPATH=NO
+bjrk-edge_RPATH=NO
 
-NGX_TEST_BUILD_DEVPOLL=NO
-NGX_TEST_BUILD_EVENTPORT=NO
-NGX_TEST_BUILD_EPOLL=NO
-NGX_TEST_BUILD_SOLARIS_SENDFILEV=NO
+bjrk-edge_TEST_BUILD_DEVPOLL=NO
+bjrk-edge_TEST_BUILD_EVENTPORT=NO
+bjrk-edge_TEST_BUILD_EPOLL=NO
+bjrk-edge_TEST_BUILD_SOLARIS_SENDFILEV=NO
 
-NGX_PLATFORM=
-NGX_WINE=
+bjrk-edge_PLATFORM=
+bjrk-edge_WINE=
 
 EVENT_FOUND=NO
 
@@ -43,18 +43,18 @@ EVENT_POLL=NO
 
 USE_THREADS=NO
 
-NGX_FILE_AIO=NO
+bjrk-edge_FILE_AIO=NO
 
 QUIC_BPF=NO
 
 HTTP=YES
 
-NGX_HTTP_LOG_PATH=
-NGX_HTTP_CLIENT_TEMP_PATH=
-NGX_HTTP_PROXY_TEMP_PATH=
-NGX_HTTP_FASTCGI_TEMP_PATH=
-NGX_HTTP_UWSGI_TEMP_PATH=
-NGX_HTTP_SCGI_TEMP_PATH=
+bjrk-edge_HTTP_LOG_PATH=
+bjrk-edge_HTTP_CLIENT_TEMP_PATH=
+bjrk-edge_HTTP_PROXY_TEMP_PATH=
+bjrk-edge_HTTP_FASTCGI_TEMP_PATH=
+bjrk-edge_HTTP_UWSGI_TEMP_PATH=
+bjrk-edge_HTTP_SCGI_TEMP_PATH=
 
 HTTP_CACHE=YES
 HTTP_CHARSET=YES
@@ -142,12 +142,12 @@ STREAM_SSL_PREREAD=NO
 DYNAMIC_MODULES=
 DYNAMIC_MODULES_SRCS=
 
-NGX_ADDONS=
-NGX_ADDON_SRCS=
-NGX_ADDON_DEPS=
+bjrk-edge_ADDONS=
+bjrk-edge_ADDON_SRCS=
+bjrk-edge_ADDON_DEPS=
 DYNAMIC_ADDONS=
 
-NGX_COMPAT=NO
+bjrk-edge_COMPAT=NO
 
 USE_PCRE=NO
 PCRE=NONE
@@ -166,22 +166,22 @@ ZLIB_OPT=
 ZLIB_ASM=NO
 
 USE_PERL=NO
-NGX_PERL=perl
+bjrk-edge_PERL=perl
 
 USE_LIBXSLT=NO
 USE_LIBGD=NO
 USE_GEOIP=NO
 
-NGX_GOOGLE_PERFTOOLS=NO
-NGX_CPP_TEST=NO
+bjrk-edge_GOOGLE_PERFTOOLS=NO
+bjrk-edge_CPP_TEST=NO
 
 SO_COOKIE_FOUND=NO
 
-NGX_LIBATOMIC=NO
+bjrk-edge_LIBATOMIC=NO
 
-NGX_CPU_CACHE_LINE=
+bjrk-edge_CPU_CACHE_LINE=
 
-NGX_POST_CONF_MSG=
+bjrk-edge_POST_CONF_MSG=
 
 opt=
 
@@ -197,21 +197,21 @@ do
     case "$option" in
         --help)                          help=yes                   ;;
 
-        --prefix=)                       NGX_PREFIX="!"             ;;
-        --prefix=*)                      NGX_PREFIX="$value"        ;;
-        --sbin-path=*)                   NGX_SBIN_PATH="$value"     ;;
-        --modules-path=*)                NGX_MODULES_PATH="$value"  ;;
-        --conf-path=*)                   NGX_CONF_PATH="$value"     ;;
-        --error-log-path=*)              NGX_ERROR_LOG_PATH="$value";;
-        --pid-path=*)                    NGX_PID_PATH="$value"      ;;
-        --lock-path=*)                   NGX_LOCK_PATH="$value"     ;;
-        --user=*)                        NGX_USER="$value"          ;;
-        --group=*)                       NGX_GROUP="$value"         ;;
+        --prefix=)                       bjrk-edge_PREFIX="!"             ;;
+        --prefix=*)                      bjrk-edge_PREFIX="$value"        ;;
+        --sbin-path=*)                   bjrk-edge_SBIN_PATH="$value"     ;;
+        --modules-path=*)                bjrk-edge_MODULES_PATH="$value"  ;;
+        --conf-path=*)                   bjrk-edge_CONF_PATH="$value"     ;;
+        --error-log-path=*)              bjrk-edge_ERROR_LOG_PATH="$value";;
+        --pid-path=*)                    bjrk-edge_PID_PATH="$value"      ;;
+        --lock-path=*)                   bjrk-edge_LOCK_PATH="$value"     ;;
+        --user=*)                        bjrk-edge_USER="$value"          ;;
+        --group=*)                       bjrk-edge_GROUP="$value"         ;;
 
-        --crossbuild=*)                  NGX_PLATFORM="$value"      ;;
+        --crossbuild=*)                  bjrk-edge_PLATFORM="$value"      ;;
 
-        --build=*)                       NGX_BUILD="$value"         ;;
-        --builddir=*)                    NGX_OBJS="$value"          ;;
+        --build=*)                       bjrk-edge_BUILD="$value"         ;;
+        --builddir=*)                    bjrk-edge_OBJS="$value"          ;;
 
         --with-select_module)            EVENT_SELECT=YES           ;;
         --without-select_module)         EVENT_SELECT=NONE          ;;
@@ -220,24 +220,24 @@ do
 
         --with-threads)                  USE_THREADS=YES            ;;
 
-        --with-file-aio)                 NGX_FILE_AIO=YES           ;;
+        --with-file-aio)                 bjrk-edge_FILE_AIO=YES           ;;
 
         --without-quic_bpf_module)       QUIC_BPF=NONE              ;;
 
         --with-ipv6)
-            NGX_POST_CONF_MSG="$NGX_POST_CONF_MSG
+            bjrk-edge_POST_CONF_MSG="$bjrk-edge_POST_CONF_MSG
 $0: warning: the \"--with-ipv6\" option is deprecated"
         ;;
 
         --without-http)                  HTTP=NO                    ;;
         --without-http-cache)            HTTP_CACHE=NO              ;;
 
-        --http-log-path=*)               NGX_HTTP_LOG_PATH="$value" ;;
-        --http-client-body-temp-path=*)  NGX_HTTP_CLIENT_TEMP_PATH="$value" ;;
-        --http-proxy-temp-path=*)        NGX_HTTP_PROXY_TEMP_PATH="$value" ;;
-        --http-fastcgi-temp-path=*)      NGX_HTTP_FASTCGI_TEMP_PATH="$value" ;;
-        --http-uwsgi-temp-path=*)        NGX_HTTP_UWSGI_TEMP_PATH="$value" ;;
-        --http-scgi-temp-path=*)         NGX_HTTP_SCGI_TEMP_PATH="$value" ;;
+        --http-log-path=*)               bjrk-edge_HTTP_LOG_PATH="$value" ;;
+        --http-client-body-temp-path=*)  bjrk-edge_HTTP_CLIENT_TEMP_PATH="$value" ;;
+        --http-proxy-temp-path=*)        bjrk-edge_HTTP_PROXY_TEMP_PATH="$value" ;;
+        --http-fastcgi-temp-path=*)      bjrk-edge_HTTP_FASTCGI_TEMP_PATH="$value" ;;
+        --http-uwsgi-temp-path=*)        bjrk-edge_HTTP_UWSGI_TEMP_PATH="$value" ;;
+        --http-scgi-temp-path=*)         bjrk-edge_HTTP_SCGI_TEMP_PATH="$value" ;;
 
         --with-http_ssl_module)          HTTP_SSL=YES               ;;
         --with-http_v2_module)           HTTP_V2=YES                ;;
@@ -302,15 +302,15 @@ $0: warning: the \"--with-ipv6\" option is deprecated"
         --without-http_upstream_sticky_module) HTTP_UPSTREAM_STICKY=NO ;;
         --without-http_upstream_sticky)
             HTTP_UPSTREAM_STICKY=NO
-            NGX_POST_CONF_MSG="$NGX_POST_CONF_MSG
+            bjrk-edge_POST_CONF_MSG="$bjrk-edge_POST_CONF_MSG
 $0: warning: the \"--without-http_upstream_sticky\" option is deprecated, \
 use the \"--without-http_upstream_sticky_module\" option instead"
         ;;
 
         --with-http_perl_module)         HTTP_PERL=YES              ;;
         --with-http_perl_module=dynamic) HTTP_PERL=DYNAMIC          ;;
-        --with-perl_modules_path=*)      NGX_PERL_MODULES="$value"  ;;
-        --with-perl=*)                   NGX_PERL="$value"          ;;
+        --with-perl_modules_path=*)      bjrk-edge_PERL_MODULES="$value"  ;;
+        --with-perl=*)                   bjrk-edge_PERL="$value"          ;;
 
         # STUB
         --with-http_stub_status_module)  HTTP_STUB_STATUS=YES       ;;
@@ -321,13 +321,13 @@ use the \"--without-http_upstream_sticky_module\" option instead"
         # STUB
         --with-imap)
             MAIL=YES
-            NGX_POST_CONF_MSG="$NGX_POST_CONF_MSG
+            bjrk-edge_POST_CONF_MSG="$bjrk-edge_POST_CONF_MSG
 $0: warning: the \"--with-imap\" option is deprecated, \
 use the \"--with-mail\" option instead"
         ;;
         --with-imap_ssl_module)
             MAIL_SSL=YES
-            NGX_POST_CONF_MSG="$NGX_POST_CONF_MSG
+            bjrk-edge_POST_CONF_MSG="$bjrk-edge_POST_CONF_MSG
 $0: warning: the \"--with-imap_ssl_module\" option is deprecated, \
 use the \"--with-mail_ssl_module\" option instead"
         ;;
@@ -365,20 +365,20 @@ use the \"--with-mail_ssl_module\" option instead"
         --without-stream_upstream_zone_module)
                                          STREAM_UPSTREAM_ZONE=NO    ;;
 
-        --with-google_perftools_module)  NGX_GOOGLE_PERFTOOLS=YES   ;;
-        --with-cpp_test_module)          NGX_CPP_TEST=YES           ;;
+        --with-google_perftools_module)  bjrk-edge_GOOGLE_PERFTOOLS=YES   ;;
+        --with-cpp_test_module)          bjrk-edge_CPP_TEST=YES           ;;
 
-        --add-module=*)                  NGX_ADDONS="$NGX_ADDONS $value" ;;
+        --add-module=*)                  bjrk-edge_ADDONS="$bjrk-edge_ADDONS $value" ;;
         --add-dynamic-module=*)          DYNAMIC_ADDONS="$DYNAMIC_ADDONS $value" ;;
 
-        --with-compat)                   NGX_COMPAT=YES             ;;
+        --with-compat)                   bjrk-edge_COMPAT=YES             ;;
 
         --with-cc=*)                     CC="$value"                ;;
         --with-cpp=*)                    CPP="$value"               ;;
-        --with-cc-opt=*)                 NGX_CC_OPT="$value"        ;;
-        --with-ld-opt=*)                 NGX_LD_OPT="$value"        ;;
+        --with-cc-opt=*)                 bjrk-edge_CC_OPT="$value"        ;;
+        --with-ld-opt=*)                 bjrk-edge_LD_OPT="$value"        ;;
         --with-cpu-opt=*)                CPU="$value"               ;;
-        --with-debug)                    NGX_DEBUG=YES              ;;
+        --with-debug)                    bjrk-edge_DEBUG=YES              ;;
 
         --without-pcre)                  USE_PCRE=DISABLED          ;;
         --with-pcre)                     USE_PCRE=YES               ;;
@@ -391,28 +391,28 @@ use the \"--with-mail_ssl_module\" option instead"
         --with-openssl-opt=*)            OPENSSL_OPT="$value"       ;;
 
         --with-md5=*)
-            NGX_POST_CONF_MSG="$NGX_POST_CONF_MSG
+            bjrk-edge_POST_CONF_MSG="$bjrk-edge_POST_CONF_MSG
 $0: warning: the \"--with-md5\" option is deprecated"
         ;;
         --with-md5-opt=*)
-            NGX_POST_CONF_MSG="$NGX_POST_CONF_MSG
+            bjrk-edge_POST_CONF_MSG="$bjrk-edge_POST_CONF_MSG
 $0: warning: the \"--with-md5-opt\" option is deprecated"
         ;;
         --with-md5-asm)
-            NGX_POST_CONF_MSG="$NGX_POST_CONF_MSG
+            bjrk-edge_POST_CONF_MSG="$bjrk-edge_POST_CONF_MSG
 $0: warning: the \"--with-md5-asm\" option is deprecated"
         ;;
 
         --with-sha1=*)
-            NGX_POST_CONF_MSG="$NGX_POST_CONF_MSG
+            bjrk-edge_POST_CONF_MSG="$bjrk-edge_POST_CONF_MSG
 $0: warning: the \"--with-sha1\" option is deprecated"
         ;;
         --with-sha1-opt=*)
-            NGX_POST_CONF_MSG="$NGX_POST_CONF_MSG
+            bjrk-edge_POST_CONF_MSG="$bjrk-edge_POST_CONF_MSG
 $0: warning: the \"--with-sha1-opt\" option is deprecated"
         ;;
         --with-sha1-asm)
-            NGX_POST_CONF_MSG="$NGX_POST_CONF_MSG
+            bjrk-edge_POST_CONF_MSG="$bjrk-edge_POST_CONF_MSG
 $0: warning: the \"--with-sha1-asm\" option is deprecated"
         ;;
 
@@ -420,13 +420,13 @@ $0: warning: the \"--with-sha1-asm\" option is deprecated"
         --with-zlib-opt=*)               ZLIB_OPT="$value"          ;;
         --with-zlib-asm=*)               ZLIB_ASM="$value"          ;;
 
-        --with-libatomic)                NGX_LIBATOMIC=YES          ;;
-        --with-libatomic=*)              NGX_LIBATOMIC="$value"     ;;
+        --with-libatomic)                bjrk-edge_LIBATOMIC=YES          ;;
+        --with-libatomic=*)              bjrk-edge_LIBATOMIC="$value"     ;;
 
-        --test-build-devpoll)            NGX_TEST_BUILD_DEVPOLL=YES ;;
-        --test-build-eventport)          NGX_TEST_BUILD_EVENTPORT=YES ;;
-        --test-build-epoll)              NGX_TEST_BUILD_EPOLL=YES   ;;
-        --test-build-solaris-sendfilev)  NGX_TEST_BUILD_SOLARIS_SENDFILEV=YES ;;
+        --test-build-devpoll)            bjrk-edge_TEST_BUILD_DEVPOLL=YES ;;
+        --test-build-eventport)          bjrk-edge_TEST_BUILD_EVENTPORT=YES ;;
+        --test-build-epoll)              bjrk-edge_TEST_BUILD_EPOLL=YES   ;;
+        --test-build-solaris-sendfilev)  bjrk-edge_TEST_BUILD_SOLARIS_SENDFILEV=YES ;;
 
         *)
             echo "$0: error: invalid option \"$option\""
@@ -436,7 +436,7 @@ $0: warning: the \"--with-sha1-asm\" option is deprecated"
 done
 
 
-NGX_CONFIGURE="$opt"
+bjrk-edge_CONFIGURE="$opt"
 
 
 if [ $help = yes ]; then
@@ -635,32 +635,32 @@ END
 fi
 
 
-if [ ".$NGX_PLATFORM" = ".win32" ]; then
-    NGX_WINE=$WINE
+if [ ".$bjrk-edge_PLATFORM" = ".win32" ]; then
+    bjrk-edge_WINE=$WINE
 fi
 
 
-NGX_SBIN_PATH=${NGX_SBIN_PATH:-sbin/nginx}
-NGX_MODULES_PATH=${NGX_MODULES_PATH:-modules}
-NGX_CONF_PATH=${NGX_CONF_PATH:-conf/nginx.conf}
-NGX_CONF_PREFIX=`dirname $NGX_CONF_PATH`
-NGX_PID_PATH=${NGX_PID_PATH:-logs/nginx.pid}
-NGX_LOCK_PATH=${NGX_LOCK_PATH:-logs/nginx.lock}
+bjrk-edge_SBIN_PATH=${bjrk-edge_SBIN_PATH:-sbin/nginx}
+bjrk-edge_MODULES_PATH=${bjrk-edge_MODULES_PATH:-modules}
+bjrk-edge_CONF_PATH=${bjrk-edge_CONF_PATH:-conf/nginx.conf}
+bjrk-edge_CONF_PREFIX=`dirname $bjrk-edge_CONF_PATH`
+bjrk-edge_PID_PATH=${bjrk-edge_PID_PATH:-logs/nginx.pid}
+bjrk-edge_LOCK_PATH=${bjrk-edge_LOCK_PATH:-logs/nginx.lock}
 
-if [ ".$NGX_ERROR_LOG_PATH" = ".stderr" ]; then
-    NGX_ERROR_LOG_PATH=
+if [ ".$bjrk-edge_ERROR_LOG_PATH" = ".stderr" ]; then
+    bjrk-edge_ERROR_LOG_PATH=
 else
-    NGX_ERROR_LOG_PATH=${NGX_ERROR_LOG_PATH:-logs/error.log}
+    bjrk-edge_ERROR_LOG_PATH=${bjrk-edge_ERROR_LOG_PATH:-logs/error.log}
 fi
 
-NGX_HTTP_LOG_PATH=${NGX_HTTP_LOG_PATH:-logs/access.log}
-NGX_HTTP_CLIENT_TEMP_PATH=${NGX_HTTP_CLIENT_TEMP_PATH:-client_body_temp}
-NGX_HTTP_PROXY_TEMP_PATH=${NGX_HTTP_PROXY_TEMP_PATH:-proxy_temp}
-NGX_HTTP_FASTCGI_TEMP_PATH=${NGX_HTTP_FASTCGI_TEMP_PATH:-fastcgi_temp}
-NGX_HTTP_UWSGI_TEMP_PATH=${NGX_HTTP_UWSGI_TEMP_PATH:-uwsgi_temp}
-NGX_HTTP_SCGI_TEMP_PATH=${NGX_HTTP_SCGI_TEMP_PATH:-scgi_temp}
+bjrk-edge_HTTP_LOG_PATH=${bjrk-edge_HTTP_LOG_PATH:-logs/access.log}
+bjrk-edge_HTTP_CLIENT_TEMP_PATH=${bjrk-edge_HTTP_CLIENT_TEMP_PATH:-client_body_temp}
+bjrk-edge_HTTP_PROXY_TEMP_PATH=${bjrk-edge_HTTP_PROXY_TEMP_PATH:-proxy_temp}
+bjrk-edge_HTTP_FASTCGI_TEMP_PATH=${bjrk-edge_HTTP_FASTCGI_TEMP_PATH:-fastcgi_temp}
+bjrk-edge_HTTP_UWSGI_TEMP_PATH=${bjrk-edge_HTTP_UWSGI_TEMP_PATH:-uwsgi_temp}
+bjrk-edge_HTTP_SCGI_TEMP_PATH=${bjrk-edge_HTTP_SCGI_TEMP_PATH:-scgi_temp}
 
-case ".$NGX_PERL_MODULES" in
+case ".$bjrk-edge_PERL_MODULES" in
     ./*)
     ;;
 
@@ -668,6 +668,6 @@ case ".$NGX_PERL_MODULES" in
     ;;
 
     *)
-        NGX_PERL_MODULES=$NGX_PREFIX/$NGX_PERL_MODULES
+        bjrk-edge_PERL_MODULES=$bjrk-edge_PREFIX/$bjrk-edge_PERL_MODULES
     ;;
 esac

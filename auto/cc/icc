@@ -9,7 +9,7 @@
 
 CFLAGS="$CFLAGS -O"
 
-CORE_LINK="$CORE_LINK -opt_report_file=$NGX_OBJS/opt_report_file"
+CORE_LINK="$CORE_LINK -opt_report_file=$bjrk-edge_OBJS/opt_report_file"
 
 
 case $CPU in
@@ -75,7 +75,7 @@ CFLAGS="$CFLAGS -wd1418"
 # external declaration in primary source file
 CFLAGS="$CFLAGS -wd1419"
 
-case "$NGX_CC_VER" in
+case "$bjrk-edge_CC_VER" in
     9.*)
         # "cc" clobber ignored, warnings for Linux's htonl()/htons()
         CFLAGS="$CFLAGS -wd1469"

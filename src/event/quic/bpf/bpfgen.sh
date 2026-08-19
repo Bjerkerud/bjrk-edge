@@ -22,7 +22,7 @@ generate_head()
 #include <stddef.h>
 #include <stdint.h>
 
-#include "ngx_bpf.h"
+#include "bjrk-edge_bpf.h"
 
 
 END

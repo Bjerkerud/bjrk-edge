@@ -3,18 +3,18 @@
 # Copyright (C) Nginx, Inc.
 
 
-    case $NGX_LIBATOMIC in
-        /*) ngx_prefix="$NGX_LIBATOMIC/build" ;;
-        *)  ngx_prefix="$PWD/$NGX_LIBATOMIC/build" ;;
+    case $bjrk-edge_LIBATOMIC in
+        /*) ngx_prefix="$bjrk-edge_LIBATOMIC/build" ;;
+        *)  ngx_prefix="$PWD/$bjrk-edge_LIBATOMIC/build" ;;
     esac
 
-    cat << END                                            >> $NGX_MAKEFILE
+    cat << END                                            >> $bjrk-edge_MAKEFILE
 
-$NGX_LIBATOMIC/build/lib/libatomic_ops.a:	$NGX_LIBATOMIC/Makefile
-	cd $NGX_LIBATOMIC && \$(MAKE) && \$(MAKE) install
+$bjrk-edge_LIBATOMIC/build/lib/libatomic_ops.a:	$bjrk-edge_LIBATOMIC/Makefile
+	cd $bjrk-edge_LIBATOMIC && \$(MAKE) && \$(MAKE) install
 
-$NGX_LIBATOMIC/Makefile:	$NGX_MAKEFILE
-	cd $NGX_LIBATOMIC \\
+$bjrk-edge_LIBATOMIC/Makefile:	$bjrk-edge_MAKEFILE
+	cd $bjrk-edge_LIBATOMIC \\
 	&& if [ -f Makefile ]; then \$(MAKE) distclean; fi \\
 	&& ./configure --prefix=$ngx_prefix
 
